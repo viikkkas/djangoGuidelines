@@ -1,0 +1,43 @@
+1. make virtual environment (mkvirtualenv test)
+2. install django (pip install django)
+3. create a project (django-admin startproject <project-name>)
+4. navigate to the project folder
+
+to run the project -> python manage.py runserver
+
+To build webpages open the folder in vscode
+
+5. Create a new app in your project using command: python manage.py startapp <name>
+6. create a url file in your app folder
+urls.py (app)- >
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('',views.home, name='home')
+]
+
+
+urls.py (project) ->
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('',include('calc.urls')),
+    path('admin/', admin.site.urls),
+]
+
+7. update view.py with the defined function in url
+
+
+
+
+Creating templates:
+1. create a folder templates in project folder.
+2. create any kind of html template in this folder. (use !+enter to enter basic html code)
+3. goto settings.py -> go to templates 
+	'DIRS': [os.path.join(BASE_DIR,'templates')]
+4. update content in views.py of the app (use render instead of request method)
+
