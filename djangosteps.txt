@@ -50,6 +50,8 @@ then {% csrf_token %} inside the form
 
 
 Using postgressql as database:
+First make models in models.py file of the app
+
 Go to settings.py : 
 	DATABASES = {
     'default': {
