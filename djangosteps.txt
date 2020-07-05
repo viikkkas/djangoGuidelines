@@ -85,4 +85,8 @@ Also add URLS to urls.py of root project folder:
 	from django.conf.urls.static import static
 	urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 	
-
+To access and the contents of database : 
+Go to views.py of the app and then import the model, then
+	def <function_name> (request):
+		<variable_name> = <model_name>.objects.all()
+		return(render, '<template_name>.html', {'<var1>':<variable_name>})
