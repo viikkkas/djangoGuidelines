@@ -71,6 +71,7 @@ INSTALLED_APPS = [
 Then to create table in databse use command: 
 python manage.py makemigrations
 python manage.py sqlmigrate <app_name> 0001
+python manage.py migrate
 
 Access admin page <address>/admin by creating superuser on the terminal using command: python manage.py createsuperuser
 
