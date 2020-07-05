@@ -47,3 +47,42 @@ Using post method:
 Use method='post' in form tag
 then {% csrf_token %} inside the form
 
+
+
+Using postgressql as database:
+Go to settings.py : 
+	DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '<name of database>',
+	'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+    }
+}
+
+INSTALLED_APPS = [
+	'<app_name>.apps.<app_nam>Config',
+	...
+}
+
+Then to create table in databse use command: 
+python manage.py makemigrations
+python manage.py sqlmigrate <app_name> 0001
+
+Access admin page <address>/admin by creating superuser on the terminal using command: python manage.py createsuperuser
+
+Go to admin.py and register your model:
+	from .models import <model_name>
+	admin.site.register(<model_name>)
+
+Include media files by going to settings.py:
+	MEDIA_URL = '/media/'
+	MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+	
+Also add URLS to urls.py of root project folder:
+	from django.conf import settings
+	from django.conf.urls.static import static
+	urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+	
+
